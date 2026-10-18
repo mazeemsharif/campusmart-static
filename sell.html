@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Post a second-hand textbook, calculator, laptop or furniture for sale on CampusMart, the student marketplace." />
+  <title>Sell an item - CampusMart</title>
+</head>
+<body>
+  <header>
+    <a href="index.html"><strong>CampusMart</strong></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Browse</a></li>
+        <li><a href="sell.html" aria-current="page">Sell an item</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sell an item</h1>
+    <p>Fill in the form below to list an item. Buyers will contact you by email.</p>
+
+    <form action="/api/listings" method="post" enctype="multipart/form-data" autocomplete="off">
+      <p>
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text"
+               required minlength="5" maxlength="100"
+               pattern=".*[^0-9].*"
+               placeholder="e.g. Casio fx-991EX scientific calculator" />
+      </p>
+
+      <p>
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="">Choose a category</option>
+          <option value="books">Books</option>
+          <option value="electronics">Electronics</option>
+          <option value="furniture">Furniture</option>
+          <option value="clothing">Clothing</option>
+          <option value="stationery">Stationery</option>
+        </select>
+      </p>
+
+      <fieldset>
+        <legend>Condition</legend>
+        <label><input type="radio" name="condition" value="NEW" required /> New</label>
+        <label><input type="radio" name="condition" value="LIKE_NEW" /> Like new</label>
+        <label><input type="radio" name="condition" value="GOOD" /> Good</label>
+        <label><input type="radio" name="condition" value="FAIR" /> Fair</label>
+      </fieldset>
+
+      <p>
+        <label for="price">Price (Rs)</label>
+        <input id="price" name="price" type="number"
+               required min="50" step="1"
+               placeholder="e.g. 4500" />
+      </p>
+
+      <p>
+        <label for="description">Description</label>
+        <textarea id="description" name="description"
+                  required minlength="20" rows="6"
+                  placeholder="Describe the condition, age and any flaws."></textarea>
+      </p>
+
+      <p>
+        <label for="photo">Photo</label>
+        <input id="photo" name="photo" type="file" accept="image/*" />
+      </p>
+
+      <p>
+        <input id="confirm" name="confirm" type="checkbox" required />
+        <label for="confirm">I confirm this item is mine to sell</label>
+      </p>
+
+      <button type="submit">Publish listing</button>
+    </form>
+
+    <section aria-labelledby="fees-heading">
+      <h2 id="fees-heading">Selling fees</h2>
+      <table>
+        <caption>Listing fees on CampusMart</caption>
+        <thead>
+          <tr>
+            <th scope="col">Listing type</th>
+            <th scope="col">Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard listing</td>
+            <td>Free</td>
+          </tr>
+          <tr>
+            <td>Featured listing</td>
+            <td>Rs 500</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <details>
+      <summary>Safety tips for meeting buyers</summary>
+      <ul>
+        <li>Meet in a busy public place on campus, such as the library lobby.</li>
+        <li>Bring a friend when selling expensive items.</li>
+        <li>Let the buyer inspect the item before money changes hands.</li>
+        <li>Never send money in advance or share your bank details.</li>
+      </ul>
+    </details>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CampusMart - <a href="mailto:help@campusmart.pk">help@campusmart.pk</a></p>
+  </footer>
+</body>
+</html>
